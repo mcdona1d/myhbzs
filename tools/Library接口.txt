@@ -1,0 +1,28 @@
+http://10.10.57.76:8080/opac/openlink.php?historyCount=1&strText=shuming&doctype=ALL&strSearchType=title&match_flag=forward&displaypg=20&sort=CATA_DATE&orderby=desc&showmode=list&location=ALL
+http://10.10.57.76:8080/opac/openlink.php?historyCount=1&strText=python&doctype=ALL&strSearchType=title&match_flag=forward&displaypg=20&sort=CATA_DATE&orderby=desc&showmode=table&location=ALL
+historyCount=1
+
+&strText=shuming
+
+&doctype=[ALL,01,02,11,12]  文献类型  
+[所有书刊 中文图书 西文图书 中文期刊 西文期刊]
+
+&strSearchType=[title,author,keyword,isbn,asordno,coden,callno,publisher,series,tpinyin,apinyin] 搜索类型
+[书名，责任者,主题词,ISBN,订购号,分类号,索书号,出版社，题名拼音，责任者拼音]
+
+&match_flag=[forward,full] 检索模式
+[前方一直，完全匹配]
+
+&displaypg=20 每页显示记录数
+
+&sort=CATA_DATE 结果排序方式以
+[CATA_DATE,M_TITLE,M_AUTHOR,M_CALL_NO,M_PUBLISHER,M_PUB_YEAR]
+[题名,责任者,索书号,出版社,出版日期]
+
+&orderby=[asc,desc] [升序排列,降序排列]
+
+&showmode=[list,table] 结果显示的方式
+[详细，表格]
+
+&location=ALL 选择单个馆藏地
+

@@ -1,0 +1,151 @@
+<!doctype html>
+<!--
+  Material Design Lite
+  Copyright 2015 Google Inc. All rights reserved.
+
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+      https://www.apache.org/licenses/LICENSE-2.0
+
+  Unless required by applicable law or agreed to in writing, software
+  distributed under the License is distributed on an "AS IS" BASIS,
+  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  See the License for the specific language governing permissions and
+  limitations under the License
+-->
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="A front-end template that helps you build fast, modern mobile web apps.">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>我的海滨助手</title>
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="/images/android-desktop.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Material Design Lite">
+    <link rel="apple-touch-icon-precomposed" href="/images/ios-desktop.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="/images/touch/ms-touch-icon-144x144-precomposed.png">
+    <meta name="msapplication-TileColor" content="#3372DF">
+
+    <link rel="shortcut icon" href="/images/favicon.png">
+
+    <!-- SEO: If your mobile URL is different from the desktop URL, add a canonical link to the desktop page https://developers.google.com/webmasters/smartphone-sites/feature-phones -->
+    <!--
+    <link rel="canonical" href="http://www.example.com/">
+    -->
+
+    <!-- <link rel="stylesheet" href="RobotoFonts/material-fonts.css">-->
+    <link rel="stylesheet" href="/MaterialIcons/material-icons.css">
+    <link rel="stylesheet" href="/static/material.min.css">
+    <link rel="stylesheet" href="/static/mdl-selectfield.min.css">
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+    #view-source {
+      position: fixed;
+      display: block;
+      right: 0;
+      bottom: 0;
+      margin-right: 20px;
+      margin-bottom: 30px;
+      z-index: 900;
+    }
+    </style>
+    <style id="style-1-cropbar-clipper">
+    .CourseDiv{
+       display: none;
+     }
+     </style>
+  </head>
+  <body>
+    <div class="demo-layout mdl-layout mdl-layout--fixed-header mdl-js-layout mdl-color--grey-100">
+      <header class="demo-header mdl-layout__header mdl-layout__header--scroll mdl-color--grey-200 mdl-color-text--grey-800">
+        <div class="mdl-layout__header-row">
+          <span class="mdl-layout-title"><h3>Exam</h3></span>
+        </div>
+      </header>
+      <div class="demo-ribbon"></div>
+      <main class="demo-main mdl-layout__content">
+        <div class="demo-container mdl-grid">
+          <div class="mdl-cell mdl-cell--2-col mdl-cell--hide-tablet mdl-cell--hide-phone"></div>
+          <div class="demo-content mdl-color--white mdl-shadow--4dp content mdl-color-text--grey-800 mdl-cell mdl-cell--8-col">
+
+            <div class="mdl-selectfield mdl-js-selectfield mdl-selectfield--floating-label">
+              <select id="CourseSelect" class="mdl-selectfield__select" name="Course">
+                {% for key in dict_title %}
+                <option value ="{{ key }}">{{ dict_title[key] }}</option>
+                {% end %}
+              </select>
+              <label class="mdl-selectfield__label" for="gender">请选择考试科目：</label>
+              <span class="mdl-selectfield__error">Select a value</span>
+            </div>
+
+            {% for key in dict_title %}
+            <div id="CourseID{{ key }}" class="CourseDiv">
+
+              <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="course" disabled="true" value="{{ dict_results[key]['course'] }}">
+                  <label class="mdl-textfield__label" for="course">考试科目：</label>
+                </div>
+              </form>
+
+              <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="date" disabled="true" value="{{ dict_results[key]['date'] }}">
+                  <label class="mdl-textfield__label" for="date">考试时间：</label>
+                </div>
+              </form>
+
+              <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="loc" disabled="true" value="{{ dict_results[key]['loc'] }}">
+                  <label class="mdl-textfield__label" for="loc">考试地点：</label>
+                </div>
+              </form>
+
+              <form action="#">
+                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                  <input class="mdl-textfield__input" type="text" id="seat" disabled="true" value="{{ dict_results[key]['seat'] }}">
+                  <label class="mdl-textfield__label" for="seat">考场座位号：</label>
+                </div>
+              </form>
+            </div>
+            {% end %}
+
+          </div>
+        </div>
+        <footer class="demo-footer mdl-mini-footer">
+          <div class="mdl-mini-footer--left-section">
+            <ul class="mdl-mini-footer--link-list">
+              <li><a href="#">Help</a></li>
+              <li><a href="#">Privacy and Terms</a></li>
+            </ul>
+          </div>
+        </footer>
+      </main>
+    </div>
+    <a href="http://www.myhbzs.cn" target="_self" id="view-source" class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-color--accent mdl-color-text--accent-contrast">About</a>
+    <script src="/static/material.min.js"></script>
+    <script src="/static/mdl-selectfield.min.js"></script>
+    <script type="text/javascript">
+      document.getElementById("CourseID0").className = document.getElementById("CourseID0").className.replace( new RegExp( "(\\s|^)" + "CourseDiv" + "(\\s|$)" ), " " );
+      var select = document.getElementById("CourseSelect");
+      select.addEventListener("change",function(){
+        for(var i=0;i<select.options.length;i++){
+          document.getElementById("CourseID"+i).style.display="none";
+        }
+        document.getElementById("CourseID"+select.selectedIndex).style.display="block";
+      });
+    </script>
+  </body>
+</html>
